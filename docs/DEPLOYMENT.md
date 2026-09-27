@@ -100,6 +100,21 @@ npm run smoke -- https://uems-pulse.spacesdrive.cc
 Manual production deploys should be rare. If one is needed, export `CLOUDFLARE_API_TOKEN`
 and `CLOUDFLARE_ACCOUNT_ID` in the shell (never in a committed file) and run `npm run deploy`.
 
+## Troubleshooting
+
+- **CSP and Cloudflare-injected scripts.** Web Analytics is enabled on the `spacesdrive.cc`
+  zone, so Cloudflare injects its beacon into HTML responses. The CSP allows only
+  `https://static.cloudflareinsights.com` (script) and `https://cloudflareinsights.com`
+  (reporting). If you enable another zone feature that injects scripts (Rocket Loader, Zaraz,
+  email obfuscation), add its origin to `public/_headers`, or production will log CSP errors.
+- **Smoke test says "old version still served" when run locally.** The version check compares
+  the live entry bundle with your local `dist/`. Tailwind's native CSS toolchain rounds a few
+  colour values differently on Windows and Linux, so a Windows build hashes differently from
+  CI's Linux build. In CI, the check runs against the artifact that was actually deployed.
+  Locally, run `npm run smoke` without a `dist/` folder to skip the version check.
+- **First run in a new repository.** GitHub may not fire `push` for the commit that creates the
+  default branch. Start that run from **Run workflow**; later pushes trigger automatically.
+
 ## Security notes
 
 - Actions are pinned to commit SHAs; Dependabot proposes updates weekly.
