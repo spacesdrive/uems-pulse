@@ -89,12 +89,6 @@ export function Footer() {
       <div className="container-wide">
         <div className="flex flex-col items-center justify-between gap-3 border-t border-line py-6 text-sm text-muted md:flex-row">
           <p>Copyright 2020 {site.name}. All Rights Reserved.</p>
-          <p>
-            SEO Managed by{' '}
-            <a href={site.credit.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink hover:text-primary">
-              {site.credit.label}
-            </a>
-          </p>
         </div>
       </div>
     </footer>

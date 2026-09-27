@@ -30,7 +30,6 @@ export const site = {
     name: 'Shalini Menon',
     linkedin: 'https://in.linkedin.com/in/shalini-menon',
   },
-  credit: { label: 'AK Dezigns', href: 'https://akdezigns.com/' },
 } as const;
 
 export const whatsappHref = (text?: string) =>
