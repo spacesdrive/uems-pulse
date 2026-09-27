@@ -38,7 +38,7 @@ env:
 jobs:
   validate:
     name: Lint, type check, test, security scan, build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -96,7 +96,7 @@ jobs:
   dependency-review:
     name: Dependency review
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -112,7 +112,7 @@ jobs:
     needs: validate
     # Only pushes (or manual runs) on main deploy; pull requests never see the deploy secrets.
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     # Secrets live on this environment, which only the main branch may deploy to.
     environment:
