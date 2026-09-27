@@ -2,6 +2,7 @@ import { useId, useState, type FormEvent } from 'react';
 import { CircleCheck, Lock, MessageCircle, Send, ShieldCheck, Timer } from 'lucide-react';
 import { site, whatsappHref } from '@/data/site';
 import { cn } from '@/lib/cn';
+import { openExternal } from '@/lib/links';
 
 const SOURCES = ['Google', 'Social Media', 'Newspaper', 'Friends/Relatives', 'Others'];
 const QUERIES = ['Study Abroad', 'Migration', 'Career Counseling', 'External Exam (Coaching)'];
@@ -63,7 +64,7 @@ export function ContactForm({ title = "Let's Connect & Guide You Forward", compa
       return;
     }
     const subject = `Enquiry${values.query ? ` – ${values.query}` : ''} from ${values.name}`;
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(compose(values))}`;
+    openExternal(`mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(compose(values))}`);
     setSent(true);
   };
 
