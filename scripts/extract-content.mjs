@@ -9,6 +9,7 @@
 import * as cheerio from 'cheerio';
 import fs from 'node:fs';
 import path from 'node:path';
+import { escapeHtml, isSafeHref } from './lib/sanitize.mjs';
 
 const ORIGIN = 'https://uemsventures.com';
 const CACHE = '.cache/html';
@@ -102,7 +103,7 @@ function inlineHtml($, el) {
       else if (tag === 'em' || tag === 'i') out += inner.trim() ? `<em>${inner}</em>` : inner;
       else if (tag === 'a') {
         const href = localHref($(node).attr('href'));
-        if (!href || href.startsWith('javascript') || href.includes('email-protection')) out += inner;
+        if (!isSafeHref(href) || href.includes('email-protection')) out += inner;
         else {
           const ext = /^https?:/.test(href);
           out += `<a href="${escapeHtml(href)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}>${inner}</a>`;
@@ -112,10 +113,6 @@ function inlineHtml($, el) {
       } else out += inner;
     });
   return out.replace(/\s+/g, ' ');
-}
-
-function escapeHtml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function imgSrc($img) {
