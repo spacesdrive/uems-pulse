@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Static-assets-only Worker: no server code runs, Cloudflare serves dist/ from its edge.
+  "name": "uems-pulse",
+  "compatibility_date": "2026-09-27",
+  "assets": {
+    "directory": "./dist",
+    // SPA: unknown navigation paths serve index.html and the client router renders the page (or its 404).
+    "not_found_handling": "single-page-application",
+    "html_handling": "auto-trailing-slash"
+  },
+  // Wrangler creates/updates the proxied DNS record and certificate for this hostname.
+  "routes": [{ "pattern": "uems-pulse.spacesdrive.cc", "custom_domain": true }],
+  // Serve only on the custom domain: no public *.workers.dev or per-version preview URLs.
+  "workers_dev": false,
+  "preview_urls": false,
+  // The account is supplied at deploy time via CLOUDFLARE_ACCOUNT_ID; never hardcode credentials here.
+  "observability": { "enabled": true }
+}
