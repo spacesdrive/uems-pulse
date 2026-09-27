@@ -17,7 +17,8 @@
     "test:coverage": "vitest run --coverage",
     "verify:dist": "node scripts/verify-dist.mjs",
     "preview:worker": "wrangler dev --local",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "smoke": "node scripts/smoke-test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
