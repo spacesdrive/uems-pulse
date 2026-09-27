@@ -15,9 +15,12 @@
     "strict": true,
     "types": [
       "node"
-    ]
+    ],
+    "allowJs": true
   },
   "include": [
-    "vite.config.ts"
+    "vite.config.ts",
+    "vitest.config.ts",
+    "eslint.config.js"
   ]
 }
