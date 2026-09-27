@@ -1,0 +1,27 @@
+{
+ "blocks": [
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/04.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2021/06/05.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/06.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "paragraph",
+   "html": "Unique Education And Migration Services- Mumbai had a pleasure conducting an Australian Educational Fair on 29 March 2019 at St. Johns College of Engineering and Management Palghar where the students were guided about Educational opportunities in Australia. We also had University Representatives from Victoria University- VU Sydney and University of Southern Queensland- USQ accompanying us to guide the students along with representatives from British Council for IELTS guidance and HDFC Credila for Loan assistance."
+  },
+  {
+   "type": "paragraph",
+   "html": "We are Thankful to the Management of St. Johns College and the Representatives for their cooperation and courteous support."
+  }
+ ]
+}

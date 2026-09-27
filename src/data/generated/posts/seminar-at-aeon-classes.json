@@ -1,0 +1,38 @@
+{
+ "blocks": [
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/IMG_20190331_165203-scaled.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/IMG_20190331_163324-scaled.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/IMG_20190331_163324_1-scaled.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2020/10/IMG_20190331_163333-scaled.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2021/06/IMG_20190331_163830-1.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "image",
+   "src": "https://uemsventures.com/wp-content/uploads/2021/06/IMG_20190331_164220.jpg",
+   "alt": "Seminar"
+  },
+  {
+   "type": "paragraph",
+   "html": "Aeon Tutorials is conducting a Free information session on choosing to study abroad.<br>Find out more on study options and benefits of studying in Canada, Australia, USA, Russia<br>Venue: Aeon classes<br>Registration is mandatory"
+  }
+ ]
+}
