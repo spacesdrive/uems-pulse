@@ -37,3 +37,7 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated on every build by scripts/generate-sitemap.mjs
+public/sitemap.xml
+public/robots.txt
