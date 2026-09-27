@@ -1,4 +1,4 @@
-import { createBrowserRouter, type LoaderFunctionArgs } from 'react-router';
+import { createBrowserRouter, type LoaderFunctionArgs, type RouteObject } from 'react-router';
 import { RootLayout } from '@/layouts/RootLayout';
 import NotFound from '@/pages/NotFound';
 
@@ -6,7 +6,7 @@ import NotFound from '@/pages/NotFound';
  * Every page is a lazily loaded route module, so the initial bundle only carries the shell
  * (layout, header, footer) plus whatever the first page needs.
  */
-export const router = createBrowserRouter([
+export const routes: RouteObject[] = [
   {
     path: '/',
     Component: RootLayout,
@@ -39,4 +39,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);
