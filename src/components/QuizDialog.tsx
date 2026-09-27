@@ -18,12 +18,18 @@ export function QuizDialog({ quiz, onClose }: { quiz: Quiz | null; onClose: () =
   const [step, setStep] = useState(-1); // -1 intro, 0..n-1 questions, n result
   const [answers, setAnswers] = useState<Letter[]>([]);
 
+  // Restart from the intro whenever a different quiz is opened.
+  const [prevQuiz, setPrevQuiz] = useState(quiz);
+  if (quiz !== prevQuiz) {
+    setPrevQuiz(quiz);
+    setStep(-1);
+    setAnswers([]);
+  }
+
   useEffect(() => {
     const dialog = ref.current;
     if (!dialog) return;
     if (quiz) {
-      setStep(-1);
-      setAnswers([]);
       if (!dialog.open) dialog.showModal();
     } else if (dialog.open) dialog.close();
   }, [quiz]);

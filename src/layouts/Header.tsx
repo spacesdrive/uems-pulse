@@ -27,7 +27,12 @@ function DesktopDropdown({ item, pathname }: { item: NavItem; pathname: string }
     closeTimer.current = window.setTimeout(() => setOpen(false), 120);
   };
 
-  useEffect(() => setOpen(false), [pathname]);
+  // Close on navigation (reset during render rather than in an effect).
+  const [openPath, setOpenPath] = useState(pathname);
+  if (openPath !== pathname) {
+    setOpenPath(pathname);
+    setOpen(false);
+  }
   useEffect(() => () => window.clearTimeout(closeTimer.current), []);
 
   return (
@@ -191,7 +196,11 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => setMenuOpen(false), [pathname]);
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);

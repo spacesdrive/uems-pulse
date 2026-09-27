@@ -4,7 +4,7 @@ import { site } from '@/data/site';
 import { telHref } from '@/lib/links';
 import { cn } from '@/lib/cn';
 
-export const expertCopy = {
+const expertCopy = {
   badge: 'Study Abroad & Migration Experts',
   title: 'We work together to help you Achieve Your Dream',
   body: [

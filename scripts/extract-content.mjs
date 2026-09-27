@@ -83,7 +83,7 @@ function localHref(href = '') {
   return href;
 }
 
-const clean = (s) => s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+const clean = (s) => s.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 
 /** Serialises inline content keeping only strong/em/a so it is safe to render as HTML. */
 function inlineHtml($, el) {

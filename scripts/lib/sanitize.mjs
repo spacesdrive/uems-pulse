@@ -8,7 +8,9 @@ export function isSafeHref(href) {
   const h = href.trim();
   if (!h) return false;
   if (/^[/#]/.test(h) && !h.startsWith('//')) return true;
-  return /^(https?:|mailto:|tel:)/i.test(h) && !/[\s\u0000-\u001f]/.test(h);
+  // Whitespace or control characters inside a URL are a common scheme-obfuscation trick.
+  const hasControlOrSpace = [...h].some((ch) => ch <= ' ' || /\s/.test(ch));
+  return /^(https?:|mailto:|tel:)/i.test(h) && !hasControlOrSpace;
 }
 
 export function escapeHtml(s) {
